@@ -1,2 +1,2 @@
 # we-japa
-re-creating we japa web app (hackathon)
+re-creating WeJapa web app (hackathon)
