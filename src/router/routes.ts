@@ -6,10 +6,11 @@ const routes: RouteConfig[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '/', name: 'index', component: () => import('pages/Index.vue') },
-      { path: 'login', name: 'login', component: () => import('pages/Login.vue') },
-      { path: 'signup', name: 'signup', component: () => import('pages/Signup.vue') },
-      { path: 'jobs', name: 'jobs', component: () => import('pages/Job.vue') },
-      { path: 'example', component: () => import('pages/ExamplePage.vue') }
+      { path: 'login', name: 'login', component: () => import('pages/Index.vue') },
+      { path: 'signup', name: 'signup', component: () => import('pages/Index.vue') },
+      { path: 'jobs', name: 'jobs', component: () => import('pages/Job.vue'), meta: { requiresAuth: true } },
+      { path: 'saved-jobs', name: 'saved-jobs', component: () => import('pages/SavedJobs.vue'), meta: { requiresAuth: true } },
+      { path: 'profile', name: 'profile', component: () => import('pages/Profile.vue'), meta: { requiresAuth: true } }
     ]
   }
 ];

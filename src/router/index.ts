@@ -8,7 +8,7 @@ import routes from './routes';
  * directly export the Router instantiation
  */
 
-export default route<StoreInterface>(function ({ Vue }) {
+export default route(function ({ Vue, store }) {
   Vue.use(VueRouter);
 
   const Router = new VueRouter({
@@ -21,6 +21,27 @@ export default route<StoreInterface>(function ({ Vue }) {
     mode: process.env.VUE_ROUTER_MODE,
     base: process.env.VUE_ROUTER_BASE
   });
+
+  // Router.beforeEach((to, from, next) => {
+  //   if(to.matched.some(record => record.meta.requiresAuth)) {
+  //     if (store.getters["auth/isLoggedIn"]) {
+  //       next()
+  //       return
+  //     }
+  //     next({name: 'index'})
+  //   } else {
+  //     next()
+  //   }
+
+  //   if(to.matched.some(record => record.name == 'index')) {
+  //     if (store.getters['auth/isLoggedIn']) {
+  //       next({name: 'jobs'})
+  //       return
+  //     }
+  //     next()
+  //   }
+
+  // })
 
   return Router;
 })

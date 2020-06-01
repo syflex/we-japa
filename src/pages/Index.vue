@@ -1,7 +1,8 @@
 <template>
   <q-page>
-    <login />
-    <signup />
+    <login v-if="route == 'login'"/>
+    <signup v-else-if="route == 'signup' "/>
+    <login v-else />
   </q-page>
 </template>
 
@@ -11,10 +12,10 @@ import signup from 'components/auth/signup'
 export default {
   name: 'Home',
   components: { login,signup },
-  data() {
-    return {
-
-    };
-  }
+  computed: {
+      route(){
+        return this.$route.name
+      }
+    },
 };
 </script>

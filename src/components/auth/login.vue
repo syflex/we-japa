@@ -1,23 +1,33 @@
 <template>
-  <div>
-    <q-card square flat>
-      <q-card-section class="text-center">
-          Wejapa
+  <q-card square flat class="column flex-center">
+      <q-card-section class="text-center text-h2">
+          We<span class="text-bold">japa</span>
       </q-card-section>
       <q-card-section class="q-gutter-md">
-          <q-input outlined dense v-model="form.email" label="Your Email" />
-          <q-input outlined dense v-model="form.password" label="Password" />
+
+          <q-input standout="bg-accent text-black" v-model="form.email" placeholder="Your Email"  class="full-width" style="border-radius: 15px"/>
+          <q-input standout="bg-accent text-black" v-model="form.password" type="password" placeholder="Password" class="full-width">
+            <template v-slot:append>
+              <q-icon
+                :name="isPwd ? 'visibility_off' : 'visibility'"
+                class="cursor-pointer"
+                @click="isPwd = !isPwd"
+              />
+            </template>
+          </q-input>
 
           <div class="text-right">
-            <q-btn color="grey-7" flat="" no-caps="" dense="" label="Forgot password" />
+            <q-btn flat no-caps dense color="accent" label="Forgot password?" class="text-caption"/>
           </div>
 
-          <q-btn color="accent" text-color="black" no-caps label="Sign In" @click="login()" class="full-width" />
-          <div>Dont have an account?  <q-btn color="secondary" flat dense no-caps label="Sign up" />
+          <q-btn color="secondary" text-color="black" unelevated size="lg" no-caps label="Sign In" @click="login()" class="full-width jp-radius text-caption" />
+
+          <div class="full-width text-center">
+            Dont have an account?
+            <q-btn color="primary" :to="{name: 'signup'}" flat dense no-caps label="Sign up" />
           </div>
       </q-card-section>
-    </q-card>
-  </div>
+  </q-card>
 </template>
 
 <script>
@@ -25,6 +35,7 @@ export default {
   // name: 'ComponentName',
   data () {
     return {
+      isPwd: true,
       form:{
         email: '',
         password: ''
@@ -34,15 +45,17 @@ export default {
 
   methods: {
     async login(){
-      // const req = await this.$axios.post('https://wejapabackend.herokuapp.com/api/developer/login', this.form);
+      const endPoint = "/api/developer/login";
+      const data = await this.$axios.post(process.env.Api+endPoint, this.form);
+      const res = data.data;
+      await this.$store.commit("auth/login", {
+        data: res.data.developer,
+        token: res.data.token
+      });
 
-//       curl --location --request POST 'https://wejapabackend.herokuapp.com/api/developer/login' \
-// --header 'Accept: application/json' \
-// --data-raw '{
-// 	"email": "favourori96@gmail.com",
-// 	"password": "123456"
-// }'
+      this.$axios.defaults.headers.common["Authorization"] = "Bearer " + res.data.token;
 
+      this.$router.push({ name: "jobs" });
     }
   },
 }
