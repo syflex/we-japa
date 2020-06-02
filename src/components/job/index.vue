@@ -74,7 +74,7 @@
                 <p class="text-accent">0 Open Roles</p>
               </div>
               <div>
-                  <q-btn color="primary" no-caps flat dense label="View Open Roles" />
+                  <q-btn color="primary" no-caps flat dense label="View Open Roles" disable=""/>
                 </div>
             </q-card-section>
         </q-card>
@@ -91,7 +91,7 @@
                 <p class="text-accent">0 Open Roles</p>
               </div>
               <div>
-                  <q-btn color="primary" no-caps flat dense label="View Open Roles" />
+                  <q-btn color="primary" no-caps flat dense label="View Open Roles" disable=""/>
                 </div>
             </q-card-section>
         </q-card>

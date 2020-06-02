@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  <q-page padding class="q-mb-xl">
     <Profile />
   </q-page>
 </template>
@@ -8,6 +8,7 @@
 import Profile from 'components/profile/index'
 export default {
   name: 'ProfilePage',
+  
   components:{
     Profile
   }

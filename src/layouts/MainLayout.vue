@@ -13,7 +13,7 @@
 
         <q-tabs v-else v-model="tab" shrink stretch>
           <q-route-tab no-caps label="Jobs" :to="{name: 'jobs'}" exact />
-          <q-route-tab no-caps label="Applications" :to="{name: 'jobs'}" exact class="gt-xs"/>
+          <q-route-tab no-caps label="Applications" :to="{name: 'jobs'}" exact class="gt-xs" disable="" />
           <q-route-tab no-caps label="Saved Jobs" :to="{name: 'saved-jobs'}" exact class="gt-xs">
             <q-badge v-if="savedJods" color="negative" floating transparent>
               {{ savedJods.length }}
@@ -34,7 +34,7 @@
         class="lt-sm fixed-bottom bg-white" active-color="primary" dense
       >
         <q-route-tab icon="home" no-caps label="Jobs" :to="{name: 'jobs'}" exact class="text-caption"/>
-        <q-route-tab icon="description" no-caps label="Applications" :to="{name: 'jobs'}" exact />
+        <q-route-tab icon="description" no-caps label="Applications" :to="{name: 'jobs'}" exact disable />
         <q-route-tab icon="fas fa-thumbtack" no-caps label="Saved Jobs" :to="{name: 'saved-jobs'}" exact >
           <q-badge v-if="savedJods" color="negative" floating transparent>
             {{ savedJods.length }}

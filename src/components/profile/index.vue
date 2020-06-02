@@ -3,6 +3,7 @@
     <div class="text-h6">Profile</div>
 
     <div class="column q-gutter-sm">
+      {{user}}
       <q-input rounded standout v-model="form.name" />
       <q-input rounded standout v-model="form.email" />
       <q-input rounded standout v-model="form.phone" />

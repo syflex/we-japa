@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  <q-page padding class="bg-grey-3  q-mb-xl">
     <SavedJobsPage />
   </q-page>
 </template>
@@ -11,6 +11,6 @@ export default {
   components:{
     SavedJobsPage
   }
-  
+
 }
 </script>
