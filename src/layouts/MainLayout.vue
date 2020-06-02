@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated class="solid-primary">
       <q-toolbar>
-        <q-toolbar-title>
+        <q-toolbar-title @click="pushMe()" class="cursor-pointer">
           <img src="statics/logo.svg" style="max-width: 35px"/>
         </q-toolbar-title>
 
@@ -66,6 +66,12 @@ export default {
     savedJods(){
      return this.$q.localStorage.getItem('wejapa-saved-jobs');
     },
+  },
+
+  methods: {
+    pushMe(){
+      this.$router.push({ name: "index" });
+    }
   },
 };
 </script>
