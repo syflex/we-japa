@@ -127,10 +127,13 @@ export default {
     sortedJobs(){
 
       let result = null;
+      const data = this.jobs.jobs;
+
       this.jobs.jobs ?
 
         result =  this.filter == false ?
-          this.jobs.jobs.sort( function(a, b) { return b.status == 'Open' } )
+
+          data.sort( function(a, b) { return b.status == 'Open' } )
           :
           this.jobs.jobs.filter(function(job){
             return job.status == 'Open'
