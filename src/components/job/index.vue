@@ -1,7 +1,7 @@
 <template>
   <div class="row">
 
-    <div class="col-8 q-px-sm">
+    <div class="col-xs-12 col-sm-9 q-px-sm">
         <div class="q-my-md">
             <q-input
               v-model="search"
@@ -52,15 +52,50 @@
           </div>
     </div>
 
-    <div class="col-4 q-px-sm">
+    <div class="col-xs-12 col-sm-3 q-px-sm">
          <div class="row flex-center no-wrap justify-between q-my-md">
-            <div class="text-h6">
-              Companies
-            </div>
-            <div class="text-accent">
-              <q-btn color="accent" flat no-caps dense label="View All"/>
-            </div>
+          <div class="text-h6">
+            Companies
           </div>
+          <div class="text-accent">
+            <q-btn color="accent" flat no-caps dense label="View All"/>
+          </div>
+        </div>
+
+        <q-card class="q-mb-sm">
+            <q-card-section class="column flex-center">
+                <div class="">
+                <q-avatar color="black">
+                  <q-img src="statics/logo.svg" width="35px"/>
+                </q-avatar>
+              </div>
+              <div>
+                <h5 class="no-margin no-wrap ellipsis">WeJapa</h5>
+                <p class="text-accent">0 Open Roles</p>
+              </div>
+              <div>
+                  <q-btn color="primary" no-caps flat dense label="View Open Roles" />
+                </div>
+            </q-card-section>
+        </q-card>
+
+        <q-card>
+            <q-card-section class="column flex-center">
+                <div class="">
+                <q-avatar color="black">
+                  <q-img src="statics/logo.svg" width="35px"/>
+                </q-avatar>
+              </div>
+              <div>
+                <h5 class="no-margin no-wrap ellipsis">WeJapa</h5>
+                <p class="text-accent">0 Open Roles</p>
+              </div>
+              <div>
+                  <q-btn color="primary" no-caps flat dense label="View Open Roles" />
+                </div>
+            </q-card-section>
+        </q-card>
+
     </div>
 
   </div>

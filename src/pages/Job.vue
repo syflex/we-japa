@@ -1,5 +1,5 @@
 <template>
-  <q-page padding class="bg-grey-3">
+  <q-page padding class="bg-grey-3  q-mb-xl">
     <JobPage :jobs="jobs"/>
   </q-page>
 </template>

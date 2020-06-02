@@ -1,5 +1,5 @@
 <template>
-        <q-card>
+      <q-card>
 
         <q-card-section class="column flex-center">
           <q-avatar color="black">
@@ -13,9 +13,9 @@
           </div>
         </q-card-section>
 
-        <q-card-section class="row no-wrap justify-between">
+        <q-card-section class="row no-wrap q-gutter-xs justify-evenly">
             <div class="column flex-center bg-grey-3 q-pa-sm rounded-borders">
-              <q-icon color="primary" name="timer_on" />
+              <q-icon color="primary" name="fa fa-stopwatch" />
               {{job.hoursPerWeek}}hrs/Wk
             </div>
             <div class="column flex-center bg-grey-3 q-pa-sm rounded-borders">
@@ -29,6 +29,7 @@
         </q-card-section>
 
         <q-card-section>
+
           <q-card flat>
             <q-tabs
               v-model="tab"
@@ -63,12 +64,17 @@
                 {{job.experience}}
               </q-tab-panel>
             </q-tab-panels>
+
           </q-card>
         </q-card-section>
 
         <q-card-actions class="column q-gutter-sm">
-          <q-btn color="primary" size="lg" unelevated no-caps label="Apply Now" class="full-width jp-radius " />
-          <q-btn color="primary" size="lg" icon="fa fa-check-circle" @click="saveJob(job._id)" flat no-caps class="full-width jp-radius" label="Save Job" />
+          <q-btn color="primary" unelevated no-caps label="Apply Now"
+          class="jp-radius q-px-lg" />
+
+          <q-btn color="primary" icon="fa fa-check-circle"
+          @click="saveJob(job._id)" flat no-caps class="jp-radius q-px-lg" label="Save Job" />
+
           <q-btn flat no-caps label="Close" color="negative" v-close-popup />
         </q-card-actions>
 

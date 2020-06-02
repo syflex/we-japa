@@ -16,7 +16,7 @@
       </div>
       <q-space />
       <div class="column flex-center">
-        <q-icon color="primary" name="fa fa-dollar-sign" />
+        <q-icon color="primary" name="fa fa-briefcase" />
         <div>$500</div>
       </div>
       </q-card-section>
