@@ -3,14 +3,14 @@
     <div class="text-h6">Profile</div>
 
     <div class="column q-gutter-sm">
-      <q-input rounded standout v-model="form.name" />
-      <q-input rounded standout v-model="form.email" />
-      <q-input rounded standout v-model="form.phone" />
-      <q-input rounded standout v-model="form.github" />
-      <q-input rounded standout v-model="form.stack" />
-      <q-input rounded standout v-model="form.drive" />
+      <q-input rounded standout :value="user.name" />
+      <q-input rounded standout :value="user.email" />
+      <q-input rounded standout :value="user.phone" />
+      <q-input rounded standout :value="user.github" />
+      <q-input rounded standout :value="user.stackOverflow" />
+      <q-input rounded standout :value="user.resume" />
 
-      {{user.name}}
+      {{user}}
 
       <q-btn color="primary" no-caps size="lg" unelevated label="Update Profile" class="jp-radius"/>
 
