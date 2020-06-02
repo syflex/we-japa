@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-xs">
-    <q-card class="jp-radius cursor-pointer no-shadow" @click="alert = true">
+    <q-card class="jp-radius cursor-pointer no-shadow" @click="viewJob(job._id)">
     <q-card-section class="no-wrap q-gutter-sm q-pa-sm flex flex-center">
       <div class="">
         <q-avatar color="black">
@@ -8,7 +8,9 @@
         </q-avatar>
       </div>
       <div>
-        <h6 class="no-margin no-wrap ellipsis">{{ job.title }}</h6>
+        <div class="no-margin no-wrap ellipsis text-bold" style="max-width: 200px">
+          {{ job.title }}
+        </div>
         <p class="no-margin text-caption text-accent">
           {{ job.location }} -
           <span :class="job.status == 'Open' ? 'text-primary' : 'text-negative'">{{ job.status }}</span>
@@ -40,6 +42,19 @@ export default {
     }
   },
 
-  components:{ JobDialog }
+  components:{
+    JobDialog
+  },
+
+  methods: {
+    viewJob(id){
+      if (this.$q.screen.lt.md) {
+        this.alert = true
+      }else{
+        this.$router.push({ name: "job", params:{id: id} });
+      }
+
+    }
+  },
 }
 </script>

@@ -17,7 +17,7 @@
         />
 
           <q-input ref="password" dense standout
-          v-model="form.password" type="password"
+          v-model="form.password" :type="isPwd ? 'password' : 'text'"
           placeholder="Password" class="full-width"
            lazy-rules
           :rules="[ val => val && val.length > 0 || 'Please type something']"

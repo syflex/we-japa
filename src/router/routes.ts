@@ -10,6 +10,7 @@ const routes: RouteConfig[] = [
       { path: 'signup', name: 'signup', component: () => import('pages/Index.vue') },
       { path: 'jobs', name: 'jobs', component: () => import('pages/Job.vue'), meta: { requiresAuth: true } },
       { path: 'saved-jobs', name: 'saved-jobs', component: () => import('pages/SavedJobs.vue'), meta: { requiresAuth: true } },
+      { path: 'job/:id', name: 'job', component: () => import('pages/JobPreview.vue'), meta: { requiresAuth: true } },
       { path: 'profile', name: 'profile', component: () => import('pages/Profile.vue'), meta: { requiresAuth: true } }
     ]
   }

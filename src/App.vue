@@ -4,8 +4,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
-  name: 'App'
+  name: 'App',
+  created () {
+    this.$q.addressbarColor.set('#041705')
+  }
 }
 </script>

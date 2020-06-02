@@ -1,5 +1,6 @@
 <template>
-      <q-card>
+  <div>
+    <q-card flat>
 
         <q-card-section class="column flex-center">
           <q-avatar color="black">
@@ -84,21 +85,33 @@
         </q-card-actions>
 
         </q-card>
-
+  </div>
 </template>
+
 <script>
 export default {
-  props:['job'],
-
-  data() {
+  // name: 'ComponentName',
+  data () {
     return {
+      job: null,
       tab: 'mails'
     }
   },
 
-methods: {
+  mounted() {
+    this.getJob();
+  },
 
-  saveJob(jobID){
+  methods: {
+    async getJob(){
+      const endPoint = "/api/job/"+this.$route.params.id;
+      const data = await this.$axios.get(process.env.Api+endPoint);
+      const res = data.data;
+      this.job = res.data
+
+    },
+
+    saveJob(jobID){
     let savedJobs = this.$q.localStorage.getItem('wejapa-saved-jobs');
     if (!savedJobs) {
       savedJobs = [];
@@ -117,7 +130,6 @@ methods: {
     }
 
   }
-
-},
+  },
 }
 </script>

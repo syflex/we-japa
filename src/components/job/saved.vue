@@ -6,6 +6,11 @@
     <div v-else>
       <JobSkeletal v-for="(item, index) in [1, 2, 3, 4]" :key="index" />
     </div>
+
+    <div v-if="!jobs.length">
+      No Saved Job
+    </div>
+
   </div>
 </template>
 

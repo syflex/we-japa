@@ -59,7 +59,7 @@ module.exports = configure(function (ctx) {
       directives: [],
 
       // Quasar plugins
-      plugins: ['LocalStorage']
+      plugins: ['LocalStorage', 'AddressbarColor']
     },
 
     // https://quasar.dev/quasar-cli/cli-documentation/supporting-ie
@@ -131,7 +131,7 @@ module.exports = configure(function (ctx) {
         description: 'WeJapa helps techies gain access to tech jobs across Africa, Europe and North America.',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#ffffff',
+        background_color: '#041705',
         theme_color: '#027be3',
         icons: [
           {
