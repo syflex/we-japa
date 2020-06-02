@@ -10,8 +10,6 @@
       <q-input rounded standout :value="user.stackOverflow" />
       <q-input rounded standout :value="user.resume" />
 
-      {{user}}
-
       <q-btn color="primary" no-caps size="lg" unelevated label="Update Profile" class="jp-radius"/>
 
       <q-btn color="grey-7" no-caps size="lg" unelevated label="Sign Out" @click="logOut" class="jp-radius"/>
