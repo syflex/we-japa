@@ -19,7 +19,7 @@
               {{ savedJods.length }}
             </q-badge>
           </q-route-tab>
-          <q-route-tab no-caps :label="'Hi ' + user.name" :to="{name: 'profile'}" exact/>
+          <q-route-tab v-if="user" no-caps :label="'Hi ' + user.name" :to="{name: 'profile'}" exact/>
         </q-tabs>
 
       </q-toolbar>
