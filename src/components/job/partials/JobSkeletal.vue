@@ -1,5 +1,5 @@
 <template>
-  <q-card>
+  <q-card class="jp-radius q-mb-sm no-shadow">
       <q-card-section class="row q-pa-sm">
         <div class="col-2">
           <q-skeleton type="QAvatar" />

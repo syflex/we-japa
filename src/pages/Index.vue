@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page class="flex flex-center">
     <login v-if="route == 'login'"/>
     <signup v-else-if="route == 'signup' "/>
     <login v-else />

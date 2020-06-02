@@ -3,6 +3,7 @@ import { LocalStorage } from 'quasar';
 // commit changes after a successful login
 export const login = (state, data) => {
   LocalStorage.set('wejapa-token', data.token);
+  LocalStorage.set('wejapa-user', data.data);
   state.token = data.token;
   state.user = data.data;
 };

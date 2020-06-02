@@ -1,13 +1,21 @@
 <template>
   <div>
-    <JobCard v-for="job in jobs"
+    <div v-if="this.jobs">
+      <JobCard v-for="job in jobs"
           :key="job._id"
           :job="job.data" />
+
+    </div>
+    <div v-else>
+      <JobSkeletal v-for="(item, index) in [1,2,3,4]" :key="index"/>
+    </div>
+
   </div>
 </template>
 
 <script>
 import JobCard from './partials/jobCard'
+import JobSkeletal from './partials/JobSkeletal'
 export default {
   // name: 'ComponentName',
   data () {
@@ -16,7 +24,9 @@ export default {
     }
   },
 
-  components:{JobCard},
+  components:{
+    JobCard, JobSkeletal
+  },
 
   mounted() {
     this.getSavedJobs();

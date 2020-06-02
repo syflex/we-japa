@@ -11,11 +11,15 @@
           <q-btn flat no-caps label="Sign up" :to="{name: 'signup'}" />
         </div>
 
-        <q-tabs v-else v-model="tab" shrink stretch class="gt-xs">
-          <q-route-tab no-caps label="Jobs" :to="{name: 'jobs'}" exact/>
-          <q-route-tab no-caps label="Applications" :to="{name: 'jobs'}" exact/>
-          <q-route-tab no-caps label="Saved Jobs" :to="{name: 'saved-jobs'}" exact/>
-          <q-route-tab no-caps label="Profile" :to="{name: 'profile'}" exact/>
+        <q-tabs v-else v-model="tab" shrink stretch>
+          <q-route-tab no-caps label="Jobs" :to="{name: 'jobs'}" exact />
+          <q-route-tab no-caps label="Applications" :to="{name: 'jobs'}" exact class="gt-xs"/>
+          <q-route-tab no-caps label="Saved Jobs" :to="{name: 'saved-jobs'}" exact class="gt-xs">
+            <q-badge v-if="savedJods" color="negative" floating transparent>
+              {{ savedJods.length }}
+            </q-badge>
+          </q-route-tab>
+          <q-route-tab no-caps :label="'Hi ' + user.name" :to="{name: 'profile'}" exact/>
         </q-tabs>
 
       </q-toolbar>
@@ -27,12 +31,16 @@
 
      <q-tabs v-if="isLoggedIn"
         v-model="tab" narrow-indicator
-        class="bg-grey-4 lt-sm" active-color="secondary" dense
+        class="lt-sm fixed-bottom bg-white" active-color="primary" dense
       >
-        <q-route-tab icon="home" no-caps label="Jobs" :to="{name: 'jobs'}" exact />
-        <q-route-tab icon="alarm" no-caps label="Applications" :to="{name: 'jobs'}" exact />
-        <q-route-tab icon="movie" no-caps label="Saved Jobs" :to="{name: 'saved-jobs'}" exact />
-        <q-route-tab icon="movie" no-caps label="Profile" :to="{name: 'profile'}" exact />
+        <q-route-tab icon="home" no-caps label="Jobs" :to="{name: 'jobs'}" exact class="text-caption"/>
+        <q-route-tab icon="description" no-caps label="Applications" :to="{name: 'jobs'}" exact />
+        <q-route-tab icon="fas fa-thumbtack" no-caps label="Saved Jobs" :to="{name: 'saved-jobs'}" exact >
+          <q-badge v-if="savedJods" color="negative" floating transparent>
+            {{ savedJods.length }}
+          </q-badge>
+        </q-route-tab>
+        <q-route-tab icon="person" no-caps label="Profile" :to="{name: 'profile'}" exact />
       </q-tabs>
 
   </q-layout>
@@ -51,6 +59,12 @@ export default {
   computed: {
     isLoggedIn() {
       return this.$store.getters["auth/isLoggedIn"];
+    },
+    user() {
+      return this.$store.getters["auth/user"];
+    },
+    savedJods(){
+     return this.$q.localStorage.getItem('wejapa-saved-jobs');
     },
   },
 };

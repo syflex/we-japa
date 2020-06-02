@@ -1,15 +1,20 @@
 <template>
   <div>
-    <div>Profile</div>{{user}}
-    <q-input square outlined v-model="text" />
-    <q-input square outlined v-model="text" />
-    <q-input square outlined v-model="text" />
-    <q-input square outlined v-model="text" />
-    <q-input square outlined v-model="text" />
-    <q-input square outlined v-model="text" />
+    <div class="text-h6">Profile</div>
 
-    <q-btn label="Update Profile" />
-    <q-btn label="Sign Out" @click="logOut" />
+    <div class="column q-gutter-sm">
+      <q-input rounded standout v-model="form.name" />
+      <q-input rounded standout v-model="form.email" />
+      <q-input rounded standout v-model="form.phone" />
+      <q-input rounded standout v-model="form.github" />
+      <q-input rounded standout v-model="form.stack" />
+      <q-input rounded standout v-model="form.drive" />
+
+      <q-btn color="primary" no-caps size="lg" unelevated label="Update Profile" class="jp-radius"/>
+
+      <q-btn color="grey-7" no-caps size="lg" unelevated label="Sign Out" @click="logOut" class="jp-radius"/>
+    </div>
+
   </div>
 </template>
 
@@ -18,7 +23,14 @@ export default {
   // name: 'ComponentName',
   data () {
     return {
-      text: ''
+      form: {
+        name:  '',
+        email: '',
+        phone: '',
+        github: '',
+        stack: '',
+        drive: ''
+      }
     }
   },
   computed: {
